@@ -1,0 +1,3 @@
+model_name: 'go-emotion-pool-mini'
+encoder_name: 'prajjwal1/bert-mini'
+fc_hiddens: (75, 75)

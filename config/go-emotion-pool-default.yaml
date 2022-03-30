@@ -3,7 +3,7 @@ output_dir: '../outputs'
 device: 'cuda'
 # any argument related to individual model
 # all model yaml should have these  
-model_name: go-emotion-gru-tiny
+model_name: go-emotion-pool-tiny
 dataset_source_path: go-emotions-google-emotions-dataset/go_emotions_dataset.csv
 train_dataset_path: train_set_compact.csv
 test_dataset_path: test_set_compact.csv
@@ -58,9 +58,6 @@ sentence_max_len: 62
 
 # model specific
 encoder_name: prajjwal1/bert-tiny
-rnn_hidden: 50
-rnn_num_layers: 1
-bidirectional: True
 fc_hiddens:
  - 50 
  - 50 
