@@ -1,0 +1,3 @@
+[submodule "emotion-detection"]
+	path = emotion-detection
+	url = https://github.com/jsong336/emotion-detection
