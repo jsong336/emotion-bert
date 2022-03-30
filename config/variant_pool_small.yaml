@@ -1,0 +1,3 @@
+model_name: 'go-emotion-pool-small'
+encoder_name: 'prajjwal1/bert-small'
+fc_hiddens: [100, 100]
