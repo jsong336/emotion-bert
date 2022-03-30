@@ -1,3 +1,8 @@
 outputs/**
+!outputs/.gitkeep
 inputs/**
+!inputs/.gitkeep
 download/**
+
+**/__pycache__/**
+**/.ipynb_checkpoints/**
