@@ -1,5 +1,7 @@
 outputs/**
+!outputs/.gitkeep
 inputs/**
+!inputs/.gitkeep
 download/**
 
 **/__pycache__/**
