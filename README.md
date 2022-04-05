@@ -1,4 +1,9 @@
-# go-emotions
+# Finding Human Emotions from Text Comments
+
+__CS4442B Artificial Intelligence 2 Final Project (Undergraduate)__
+
+Jeongwon Song: jsong336@uwo.ca <br/>
+Jason Koo: jkoo26@uwo.ca <br/>
 
 Before running, please download following files to `inputs/`
 
