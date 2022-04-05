@@ -5,10 +5,35 @@ __CS4442B Artificial Intelligence 2 Final Project (Undergraduate)__
 Jeongwon Song: jsong336@uwo.ca <br/>
 Jason Koo: jkoo26@uwo.ca <br/>
 
-Before running, please download following files to `inputs/`
+Fine-grained emotion detectiong using BERT and GoEmotions dataset: https://arxiv.org/abs/2005.00547. Details in <a href="/report.pdf" target="_blank" > report.pdf </a>.
+
+### Setup with Google Colab
+
+The project was developed in Google Colab utilizing Google Drive as storage. To setup the running environment please follows below steps. 
+
+1. Create a colab notebook and clone the project. 
 
 ```python3
-def download_from_kaggle(url, target_dir=input_dir):
+from google.colab import drive
+drive.mount('/content/drive/')
+
+repos_dir = '/content/drive/MyDrive/{where you want to put in google drive}'
+repos = 'fine-grained-emotions-bert' # our repository name
+url = "https://github.com/jsong336/fine-grained-emotions-bert.git"
+
+%cd $repos_dir
+! git clone $url
+%cd $repos_dir/$repos
+! git pull 
+```
+2. Go to Kaggle and create developer API credential. 
+```python3
+import os
+
+os.environ['KAGGLE_USERNAME'] = ""
+os.environ['KAGGLE_KEY'] = ""
+
+def download_from_kaggle(url, target_dir):
   dataset_name = url.split('/', 1)[-1]
   dirname = os.path.join(target_dir, dataset_name)
   ! mkdir $dirname
@@ -16,18 +41,19 @@ def download_from_kaggle(url, target_dir=input_dir):
   ! unzip $dataset_name -d $dirname
   return 
   
-download_from_kaggle('shivamb/go-emotions-google-emotions-dataset')
-download_from_kaggle('ishivinal/contractions')
-download_from_kaggle('bittlingmayer/spelling')
+input_dir = repos_dir + '/inputs'
+download_from_kaggle('shivamb/go-emotions-google-emotions-dataset', input_dir)
+download_from_kaggle('ishivinal/contractions', input_dir)
+download_from_kaggle('bittlingmayer/spelling', input_dir)
 ```
 
-Once you have all csv files, 
+Go to your Google Drive and make sure you have the repository cloned and datasets downloaded
 
-1. Go to `notebooks/` folder which contains all of our source code & notebooks 
-2. Run `main_prepare_dataset.ipynb`
-3. Check if you have train and test csv datasets in `outputs/` folder. 
-4. Then you could run `main_bert_gru.ipynb` and `main_bert_gru.ipynb` to train the models. 
-5. Once models are trained, you could use `view_model_analysis.ipynb` to compare the models. 
+3. Go to `notebooks/` and run `main_prepare_dataset.ipynb` and you should have train & test datasets splitted in the `inputs/`
+
+4. Run `main_bert_gru.ipynb` and `main_bert_dense.ipynb` notebooks to train the models. (Careful, these notebooks create a checkpoint on your Google Drive and easily take up a lot of Google Drive space)
+
+5. Run `view_model_analysis.ipynb` to compare the models. 
 
 Because all of our codes were developed in google colab and archives were stored in google drive, any `view_*` or `main_*` codes contains following block
 
@@ -46,5 +72,4 @@ if colab_workdir:
 else:
     print('Running with jupyter notebook')
 ```
-
-If you wish to run these notebooks, then you might need to update `os.environ['GO_EMOTIONS_COLAB_WORKDIR'] = {workdir}` or `export GO_EMOTIONS_COLAB_WORKDIR={workdir}`.
+You might need to update `os.environ['GO_EMOTIONS_COLAB_WORKDIR'] = {cloned work directory in google drive}`.
