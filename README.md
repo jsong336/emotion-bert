@@ -51,7 +51,7 @@ Go to your Google Drive and make sure you have the repository cloned and dataset
 
 3. Go to `notebooks/` and run `main_prepare_dataset.ipynb` and you should have train & test datasets splitted in the `inputs/`
 
-4. Run `main_bert_gru.ipynb` and `main_bert_dense.ipynb` notebooks to train the models. (Careful, these notebooks create a checkpoint on your Google Drive and easily take up a lot of Google Drive space)
+4. Run `main_bert_gru.ipynb` and `main_bert_dense.ipynb` notebooks to train the models. (**Careful, these notebooks create a checkpoint on your Google Drive and easily take up a lot of Google Drive space**)
 
 5. Run `view_model_analysis.ipynb` to compare the models. 
 
