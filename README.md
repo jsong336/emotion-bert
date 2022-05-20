@@ -5,7 +5,7 @@ __CS4442B Artificial Intelligence 2 Final Project (Undergraduate)__
 Jeongwon Song: jsong336@uwo.ca <br/>
 Jason Koo: jkoo26@uwo.ca <br/>
 
-Fine-grained emotion detectiong using BERT and GoEmotions dataset: https://arxiv.org/abs/2005.00547. Details in <a href="/report.pdf" target="_blank" > report.pdf </a>.
+Fine-grained emotion detectiong using BERT and <a href="https://arxiv.org/abs/2005.00547">GoEmotions dataset</a>. Details in <a href="/report.pdf" target="_blank" > report.pdf </a>.
 
 ### Setup with Google Colab
 
