@@ -1,0 +1,56 @@
+resource:
+  device: "cuda"
+  dataset:
+    dir: ./.volume/input/default
+
+data:
+  dir: ./.volume/default/input/dataset
+  extra: 
+    # These are custom defined 
+    drop_insignificant: True
+  dataset:
+    train: 
+      file: train.csv
+      columns: [
+        text, 
+        admiration, amusement, anger, annoyance, 
+        approval, caring, confusion, curiosity, desire,
+        disappointment, disapproval, disgust, embarrassment,
+        excitement, fear, gratitude, grief, joy, love, 
+        nervousness, optimism, pride, realization, 
+        relief, remorse, sadness, surprise
+      ]
+    test: 
+      file: test.csv
+      columns: [
+        admiration, amusement, anger, annoyance, 
+        approval, caring, confusion, curiosity, desire,
+        disappointment, disapproval, disgust, embarrassment,
+        excitement, fear, gratitude, grief, joy, love, 
+        nervousness, optimism, pride, realization, 
+        relief, remorse, sadness, surprise
+      ]
+
+model:
+  sentence_max_len: 62
+  pretrained_encoder: prajjwal1/bert-tiny
+  fc_hiddens: [50, 50]
+  dropout_p: 0.1
+  threshold: 0.5
+
+train:
+  seed: 0 
+  validation: 
+    split: 0.2
+    step: 3000
+    batch: 32
+  train: 
+    batch: 32
+    epoch: 10
+    learning_rate: 0.0001
+    grad_clip: 1
+    weight_decay: 0.00001
+    warmup_ratio: 0.1
+  checkpoint:
+    dir: ./.volume/default/output/checkpoint
+    step: 3000

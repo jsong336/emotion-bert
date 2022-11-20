@@ -23,6 +23,8 @@ RUN poetry install --no-interaction --no-dev --no-root
 
 COPY notebook notebook 
 COPY tests tests
+COPY emotion_bert emotion_bert
+COPY config config
 
 # Jupyterlab port 
 EXPOSE 8888
