@@ -1,0 +1,17 @@
+version: '3'
+services:
+  mllab: 
+    build: . 
+    image: mllab/emotion-bert:latest
+    container_name: mllab-emotion-bert
+    ports:
+      - 8888:8888
+    volumes:
+      - ./.volume:/volume
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: all 
+            capabilities: [gpu]
